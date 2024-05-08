@@ -57,8 +57,10 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '' => ''
             ],
         ],
+        'defaultRoute' => 'books',
     ],
     'params' => $params,
 ];
