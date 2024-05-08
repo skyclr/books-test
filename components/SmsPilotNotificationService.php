@@ -18,12 +18,22 @@ class SmsPilotNotificationService extends Component implements INotificationServ
 
     public function sendPhoneNotification($phone, $message)
     {
-        $this->client->get($this->url, [
+        $response = $this->client->get($this->url, [
             'query' => [
                 'send' => $message,
                 'to' => $phone,
                 'apikey' => $this->apiKey,
             ]
         ]);
+        
+        if($response->getStatusCode() !== 200) {
+            throw new \Exception("Cant send sms notification for phone $phone");
+        }
+        
+        $responseJson = json_decode($response->getBody(), true);
+        
+        if(!empty($responseJson['error'])) {
+            throw new \yii\db\Exception("Cant send sms notification for phone: " . $responseJson['error']['description'] ?? 'for unknown reason');
+        }
     }
 }
