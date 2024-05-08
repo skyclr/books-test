@@ -30,6 +30,8 @@ use yii\web\JsExpression;
     <?= $form->field($model, 'year')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'isbn')->textInput(['maxlength' => true]) ?>
+    
+    <?= $form->field($model, 'amount')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'description')->textarea() ?>
 

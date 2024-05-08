@@ -1,6 +1,6 @@
 <?php
 
-namespace common\config\bootstrap;
+namespace app\config\bootstrap;
 
 use app\components\SubscriptionsService;
 use app\interfaces\ISubscriptionsService;

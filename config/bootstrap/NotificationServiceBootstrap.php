@@ -1,9 +1,9 @@
 <?php
 
-namespace common\config\bootstrap;
+namespace app\config\bootstrap;
 
 use app\interfaces\INotificationService;
-use SmsPilotNotificationService;
+use app\components\SmsPilotNotificationService;
 use Yii;
 use yii\base\BootstrapInterface;
 

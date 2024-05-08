@@ -3,8 +3,8 @@
 /* @var $this yii\web\View */
 /* @var $model app\modules\nsi\models\Cities */
 
-$this->title = Yii::$app->name .' - Books - Create';
-$this->params['breadcrumbs'][] = ['label' => 'Books', 'url' => ['/books']];
+$this->title = Yii::$app->name .' - Authors - Update';
+$this->params['breadcrumbs'][] = ['label' => 'Authors', 'url' => ['/authors']];
 $this->params['breadcrumbs'][] = 'Edit';
 
 ?>

@@ -14,6 +14,9 @@ class m240508_122307_create_subscriptions_table extends Migration
     {
         $this->createTable('{{%subscriptions}}', [
             'id' => $this->primaryKey(),
+            'phone' => $this->string()->notNull(),
+            'bookId'=> $this->integer()->notNull(),
+            'FOREIGN KEY ([[bookId]]) REFERENCES `books` ([[id]]) ON DELETE CASCADE ON UPDATE CASCADE',
         ]);
     }
 

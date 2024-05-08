@@ -30,6 +30,7 @@ $this->params['breadcrumbs'][] = $model->name;
                 'name',
                 'year',
                 'isbn',
+                'amount',
                 'description',
                 [
                     'label' => 'Authors',

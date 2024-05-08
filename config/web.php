@@ -1,7 +1,7 @@
 <?php
 
-use common\config\bootstrap\NotificationServiceBootstrap;
-use common\config\bootstrap\SubscriptionsServiceBootstrap;
+use app\config\bootstrap\NotificationServiceBootstrap;
+use app\config\bootstrap\SubscriptionsServiceBootstrap;
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';

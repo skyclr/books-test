@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use interfaces\ISubscriptionsService;
+use app\interfaces\ISubscriptionsService;
 use Throwable;
 use Yii;
 use yii\base\InvalidConfigException;

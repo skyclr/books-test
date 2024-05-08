@@ -1,5 +1,7 @@
 <?php
 
+namespace app\components;
+
 use app\interfaces\INotificationService;
 use GuzzleHttp\Client;
 use yii\base\Component;

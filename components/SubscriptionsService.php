@@ -2,11 +2,12 @@
 
 namespace app\components;
 
+use app\interfaces\INotificationService;
+use app\interfaces\ISubscriptionsService;
 use app\models\Subscription;
-use interfaces\INotificationService;
 use yii\base\Component;
 
-class SubscriptionsService extends Component implements \interfaces\ISubscriptionsService
+class SubscriptionsService extends Component implements ISubscriptionsService
 {
     private INotificationService $notificationService;
 
