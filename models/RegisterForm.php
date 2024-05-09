@@ -13,10 +13,10 @@ use yii\base\Model;
  */
 class RegisterForm extends Model
 {
-    public string $username;
+    public string $username = '';
     public string $password;
 
-    private User $_user;
+    private ?User $_user;
 
 
     /**
@@ -50,7 +50,7 @@ class RegisterForm extends Model
     }
 
     /**
-     * Validates the password.
+     * Validates the username.
      * This method serves as the inline validation for password.
      *
      * @param string $attribute the attribute currently being validated
@@ -59,7 +59,7 @@ class RegisterForm extends Model
     public function validateUsername($attribute, $params)
     {
         if (!$this->hasErrors()) {
-            $user = $this->getUser();
+            $user = User::findByUsername($this->username);
 
             if ($user) {
                 $this->addError($attribute, 'User with such name already exists');
@@ -109,7 +109,7 @@ class RegisterForm extends Model
      */
     public function getUser(): ?User
     {
-        if ($this->_user === null) {
+        if (!isset($this->_user)) {
             $this->_user = User::findByUsername($this->username);
         }
 
