@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Author;
 use app\models\AuthorSearch;
+use app\models\TopAuthorsForm;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\db\StaleObjectException;
@@ -150,8 +151,16 @@ class AuthorsController extends BaseWebController
         }, $authors)]);
     }
     
-    public function actionGetTopAuthors(?int $year = null)
+    public function actionTop(): string
     {
+        $model = new TopAuthorsForm();
+        $model->load(Yii::$app->request->post());
         
+        return $this->render('top', [
+            'dataProvider' => new ActiveDataProvider([
+                'query' => AuthorSearch::getTopByYear($model->year)
+            ]),
+            'model' => $model
+        ]);
     }
 }

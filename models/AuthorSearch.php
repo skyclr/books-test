@@ -16,4 +16,15 @@ class AuthorSearch extends Author
             ->limit($limit)
             ->all();
     }
+
+    public static function getTopByYear(int $year): \yii\db\ActiveQuery
+    {
+        return static::find()
+            ->select([Author::tableName().'.*', 'booksCount' => 'COUNT(' . Book::tableName() .'.id)'])
+            ->joinWith('books')
+            ->where([Book::tableName() . '.year' => $year])
+            ->groupBy(Author::tableName() . '.id')
+            ->orderBy(['COUNT(' . Book::tableName() .'.id)' => SORT_DESC])
+            ->asArray();
+    }
 }
